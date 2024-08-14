@@ -1,0 +1,45 @@
+.todos-container {
+    margin: 0 auto;
+    width: 600px;
+    padding: 30px;
+}
+
+.todos-header {
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid orangered;
+    background-color: orange;
+    margin: 0;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    padding: 8px;
+    border-left: 1px dotted gray;
+    border-bottom: 1px dotted gray;
+    border-right: 1px dotted gray;
+}
+
+.todo-number-label {
+    width: 25px;
+    text-align: center;
+    border-radius: 25%;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.todo-title {
+    width: 50%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.todo-status {
+    font-weight: "bold";
+    font-size: larger;
+    cursor: pointer;
+}
+

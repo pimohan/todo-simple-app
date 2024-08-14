@@ -1,0 +1,7 @@
+.container-sidebar {
+    border-right: 1px solid lightgray;
+    background-color: whitesmoke ;
+    padding: 12px;
+    height: calc(100% - 25px);
+    width: 200px;
+}
