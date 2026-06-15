@@ -1,0 +1,128 @@
+.board-tabs {
+  display: none;
+}
+
+.board-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 24px 24px 32px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+.board-column-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.drag-overlay-card {
+  transform: rotate(2deg) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(124, 58, 237, 0.3);
+  border-radius: var(--r-lg);
+  cursor: grabbing;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .board-columns {
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    overflow-x: auto;
+    padding: 20px 20px 28px;
+    gap: 16px;
+    /* Make it scroll horizontally on tablet */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .board-column-wrap {
+    scroll-snap-align: start;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .board-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px 0;
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    background: rgba(7, 7, 26, 0.95);
+    backdrop-filter: blur(16px);
+    z-index: 10;
+  }
+
+  .board-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 4px;
+    border-radius: var(--r-md) var(--r-md) 0 0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .board-tab.active {
+    color: var(--tab-color);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--glass-border);
+    border-bottom-color: transparent;
+  }
+
+  .board-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--tab-color);
+    border-radius: var(--r-full) var(--r-full) 0 0;
+  }
+
+  .board-tab-label {
+    display: none;
+  }
+
+  .board-tab-count {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .board-columns {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 0;
+    overflow-x: hidden;
+  }
+
+  .board-column-wrap {
+    display: none;
+    min-width: 0;
+    scroll-snap-align: none;
+  }
+
+  .board-column-wrap:not(.board-column-hidden) {
+    display: flex;
+  }
+}
+
+@media (min-width: 640px) {
+  .board-tab-label {
+    display: inline;
+  }
+}
